@@ -31,20 +31,20 @@
 ### 3. 메이븐 설정파일 pom.xml
   - 자바 프로젝트를 생성 시 빌드 툴을 메이븐으로 설정했다면, 프로젝트 최상위 디렉토리에 pom.xml 파일이 생성된다.
   - pom.xml 은 POM(Project Object Model)을 설정하는 파일, 즉 프로젝트 내 빌드 옵션을 설정하는 파일이다.
-  - <project> ... </project> 태그로 둘러싸여 있으며, 각 태그 내에서 빌드 옵션을 설정할 수 있다.
-  - <build> ... </build> 내에서 메이븐의 핵심인 빌드 정보를 설정한다.
-  - <build> 에서 설정할 수 있는 값들
-      - <finalName> : 빌드 결과물(ex .jar) 이름 설정
-      - <resources> : 리소스(각종 설정 파일)의 위치를 지정
-      - <resource> : 없으면 기본으로 "src/main/resources"
-      - <testResources> : 테스트 리소스의 위치를 지정
-      - <testResource> : 없으면 기본으로 "src/test/resources"
-      - <Repositories> : 빌드할 때 접근할 저장소의 위치를 지정, 기본값은 메이븐 중앙 저장소인 http://repo1.maven.org/maven2
-      - <outputDirectory> : 컴파일한 결과물 위치 값 지정, 기본 "target/classes"
-      - <testOutputDirectory> : 테스트 소스를 컴파일한 결과물 위치 값 지정, 기본 "target/test-classes"
-      - <plugin> : 액션 하나를 담당하는 것으로 가장 중요하지만 들어가는 옵션은 제 각각, 따로 실행할 플러그인을 메이븐 명령어로 실행해야 함
-      - <executions> : 플러그인 goal과 관련된 실행에 대한 설정
-      - <configuration> : 플러그인에서 필요한 설정 값 지정
+  - \<project\> ... \<\/project\> 태그로 둘러싸여 있으며, 각 태그 내에서 빌드 옵션을 설정할 수 있다.
+  - \<build\> ... \<\/build\> 내에서 메이븐의 핵심인 빌드 정보를 설정한다.
+  - \<build\> 에서 설정할 수 있는 값들
+      - \<finalName\> : 빌드 결과물(ex .jar) 이름 설정
+      - \<resources\> : 리소스(각종 설정 파일)의 위치를 지정
+      - \<resource\> : 없으면 기본으로 "src/main/resources"
+      - \<testResources\> : 테스트 리소스의 위치를 지정
+      - \<testResource\> : 없으면 기본으로 "src/test/resources"
+      - \<Repositories\> : 빌드할 때 접근할 저장소의 위치를 지정, 기본값은 메이븐 중앙 저장소인 http://repo1.maven.org/maven2
+      - \<outputDirectory\> : 컴파일한 결과물 위치 값 지정, 기본 "target/classes"
+      - \<testOutputDirectory\> : 테스트 소스를 컴파일한 결과물 위치 값 지정, 기본 "target/test-classes"
+      - \<plugin\> : 액션 하나를 담당하는 것으로 가장 중요하지만 들어가는 옵션은 제 각각, 따로 실행할 플러그인을 메이븐 명령어로 실행해야 함
+      - \<executions\> : 플러그인 goal과 관련된 실행에 대한 설정
+      - \<configuration\> : 플러그인에서 필요한 설정 값 지정
   
   
    
