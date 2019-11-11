@@ -48,6 +48,6 @@
   
   
    
-   * 참고 사이트
-      - (메이븐\(Maven\)은 알고 스프링\(Spring\)을 쓰는가? \(pom.xml 분석하며 가볍게 정리하는 빌드 툴, Maven\))[https://jeong-pro.tistory.com/168]
-      - (\[Spring\] 메이븐\(Maven\)이란?)[https://jerryjerryjerry.tistory.com/63]
+* 참고 사이트
+  - (메이븐\(Maven\)은 알고 스프링\(Spring\)을 쓰는가? \(pom.xml 분석하며 가볍게 정리하는 빌드 툴, Maven\))[https://jeong-pro.tistory.com/168]
+  - (\[Spring\] 메이븐\(Maven\)이란?)[https://jerryjerryjerry.tistory.com/63]
