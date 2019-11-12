@@ -16,7 +16,6 @@ public class WordSearchWithAutowired {
 	
 	// 생성자가 아닌 메소드나 프로퍼티에 annotation 적용시 디폴트 생성자 명시 필   
 	// annotation 없는 생성자는 파라미터값을 자동으로 찾을 수 없기 때문
-	
 	public WordSearchWithAutowired() {
 		
 	}
