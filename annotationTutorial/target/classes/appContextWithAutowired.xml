@@ -12,13 +12,13 @@
 		추가 필요 -->
 	<context:annotation-config />
 
-	<!-- 스프링 컨테이너에 WordDao 클래스의 빈 객체 생성 -->
-	<bean id="wordDao" class="com.word.dao.WordDao" />
-
-	<!-- WordRegister 클래스의 빈 객체 생성 -->
+	<bean id="wordDao" class="com.word.dao.WordDao">
+		<qualifier value="usedDao"/>
+	</bean>
+	<bean id="wordDaoCopied" class="com.word.dao.WordDao" />
+	
 	<bean id="wordRegister"
 		class="com.word.service.WordRegisterWithAutowired" />
-
 	<bean id="wordSearch"
 		class="com.word.service.WordSearchWithAutowired" />
 </beans>
