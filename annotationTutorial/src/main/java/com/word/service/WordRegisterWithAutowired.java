@@ -9,7 +9,9 @@ public class WordRegisterWithAutowired {
 	
 	private WordDao wordDao;
 	
-	// 생성자를 통한 의존객체 자동 주입
+	// Autowired : 컨테이너에서 동일 타입 객체 자동 의존주입 / 생성자, 메소드, 프로퍼티에 사용 가능 
+	// Resource : 컨테이너에서 동일 이름(id) 객체 자동 의존주입 / 메소드, 프로퍼티에 사용 가능
+	
 	// 스프링 컨테이너에서 WordDao 타입의 객체를 찾아 자동으로 파라미터 넣어줌 
 	@Autowired
 	public WordRegisterWithAutowired(WordDao wordDao) {
