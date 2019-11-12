@@ -5,6 +5,6 @@
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 		
 	<!-- 스프링 컨테이너에 객체 생성  -->
-	<bean id="test" class="first.Test"/>
+	<bean id="test" class="first.Test" />
 
 </beans>
