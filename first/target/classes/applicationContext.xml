@@ -4,7 +4,25 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd">
 		
-	<!-- 스프링 컨테이너에 객체 생성  -->
+	<!-- 스프링 컨테이너에 빈 객체 생성 
+		* 싱글톤 (사용시 객체를 생성하지 않고 빈 객체를 참조 )
+	-->
 	<bean id="test" class="first.Test" />
+	
+	<!-- 다른 스프링 설정파일 임포트하기 (주로 선호되는 방법은 아님) -->
+	<import resource="classpath:applicationDB.xml" />
+	
+	
+	<!-- 스프링 컨테이너에 빈 생성 
+		* 프로토타입 (사용시마다 서로 다른 객체 생성 )
+	 -->
+	
+	<bean id="injectionBean" class="first.InjectionBean"/>
+	<bean id="dependencyBean" class="first.DependencyBean" scope="prototype">
+		<!--  생성자 매개변수 / 매개변수가 객체인 경우 참조 속성 ref -->
+		<constructor-arg ref="injectionBean"/>
+		<!-- setter 변수에 값/객체 주기   -->
+		<property name="injectionBean" ref="injectionBean"/>
+	</bean>
 
 </beans>
