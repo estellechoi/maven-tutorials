@@ -12,7 +12,6 @@ public class WordRegisterWithResource {
 	// Autowired annotation은 동일한 객체 타입을 가진 객체를 찾아 자동 주입 
 	
 	// Resource annotation은 Autowired와 다르게 생성자에 사용할 수 없다
-	// 프로퍼티나 메소드에만 사용 가능 
 	// 프로퍼티나 메소드에 annotation 사용하는 경우, 디폴트 생성자 명시 필 
 	@Resource
 	private WordDao wordDao;
