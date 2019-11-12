@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- annotation 을 통한 의존객체 자동주입을 사용하겠다 (스프링 제공) 위에 xmlns:context, xsi:schemaLocation 
+		추가 필요 -->
+	<context:annotation-config />
+
+	<!-- 스프링 컨테이너에 WordDao 클래스의 빈 객체 생성 -->
+	<bean id="wordDao" class="com.word.dao.WordDao" />
+
+	<!-- WordRegister 클래스의 빈 객체 생성 -->
+	<bean id="wordRegister"
+		class="com.word.service.WordRegisterWithAutowired" />
+
+	<bean id="wordSearch"
+		class="com.word.service.WordSearchWithAutowired" />
+</beans>
