@@ -18,6 +18,6 @@ public class Signin {
 	// Model : 데이터베이스 출력 관련 ?
 	public String signin(Model model) {
 		model.addAttribute("signinKey", "signinValue");
-		return "singin"; // signin.jsp
+		return "signin"; // signin.jsp
 	}
 }
