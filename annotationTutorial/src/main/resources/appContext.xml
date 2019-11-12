@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 스프링 컨테이너에 WordDao 클래스의 빈 객체 생성  -->
+	<bean id="wordDao" class="com.word.dao.WordDao" />
+	
+	<!-- WordRegister 클래스의 빈 객체 생성, 생성자를 통한 의존객체 주입 (매개변수로 wordDao 객체를 넣음)  -->
+	<bean id="wordRegister" class="com.word.service.WordRegister">
+		<constructor-arg ref="wordDao"/>
+	</bean>
+	
+	<bean id="wordSearch" class="com.word.service.WordSearch">
+		<constructor-arg ref="wordDao"/>
+	</bean>
+</beans>
