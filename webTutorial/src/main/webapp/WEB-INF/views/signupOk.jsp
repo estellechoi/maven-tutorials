@@ -6,14 +6,11 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	회원가입 완료  
 </h1>
-
-<!-- key 값을 넣으면, value 값 출력  -->
-<P>  Signin key : ${signinKey}. </P>
-<h1>로그인 완료 </h1>
 Email : ${email} <br />
 PW : ${pwd} <br />
+Cell : ${cell} <br />
 <a href="/blog/resoures/html/index.html">홈</a>
 </body>
 </html>
