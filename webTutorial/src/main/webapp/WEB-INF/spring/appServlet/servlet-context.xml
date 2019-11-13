@@ -22,7 +22,9 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="kr.co.blog" />
-	
-	
+
+	<!-- 빈 객체 생성하기  -->	
+	<!-- 해당 클래스에서 직접 @Service 어노테이션으로 빈 생성  -->
+<!-- 	<beans:bean id="memberService" class="kr.co.blog.members.service.MemberService" /> -->
 	
 </beans:beans>
