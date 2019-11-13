@@ -1,16 +1,19 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Sign In</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
 <h1>
 	회원가입 완료  
 </h1>
-Email : ${email} <br />
-PW : ${pwd} <br />
-Cell : ${cell} <br />
+Email : ${member.getEmail} <br />
+PW : ${member.getPwd} <br />
+User : ${member.getUsername} <br />
+Cell : ${member.getCell1} - ${member.getCell2} - ${member.getCell3} <br />
 <a href="/blog/resoures/html/index.html">홈</a>
 </body>
 </html>
