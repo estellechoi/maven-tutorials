@@ -136,12 +136,21 @@ public class MemberController {
 		
 		// 세션정보 가져오기 
 		Member member = (Member) session.getAttribute("member");
-		
+
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("member", memberService.selectSession(member));
-		mv.setViewName("editForm");
 		
+		// 세션이 없다면 (로그아웃 상태)
+		if (null == member) {
+			mv.setViewName("redirect:/resources/html/signinSession.html");
+		}
+		// 세션이 있다면 (로그인 상태)
+		else {
+			mv.addObject("member", memberService.selectSession(member));
+			mv.setViewName("editForm");			
+		}
+
 		return mv;
+		
 	}
 	
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
