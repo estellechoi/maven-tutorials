@@ -10,10 +10,12 @@
 <h1>
 	회원가입 완료  
 </h1>
-Email : ${member.getEmail} <br />
-PW : ${member.getPwd} <br />
-User : ${member.getUsername} <br />
-Cell : ${member.getCell1} - ${member.getCell2} - ${member.getCell3} <br />
+Email : ${m.email} <br />
+PW : ${m.pwd} <br />
+User : ${m.username} <br />
+Is Adult : ${m.isAdult} <br />
+<%-- Sports : ${m.sports} <br /> --%>
+${serverTime} <br />
 <a href="/blog/resoures/html/index.html">홈</a>
 </body>
 </html>
