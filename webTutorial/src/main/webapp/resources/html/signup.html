@@ -10,9 +10,28 @@
 		Email : <input type="text" name="email" /><br />
 		Passw : <input type="password" name="pwd" /><br />
 		Username : <input type="text" name="username" /><br />
-		cell : <input type="text" name="cell1" size="5">
-		<input type="text" name="cell2" size="5">
-		<input type="text" name="cell3" size="5">
+		Cell 1 :
+		<!-- 중첩 커맨드 사용  -->
+		<!-- cells (Member 변수명) cell1 (MemberCell 변수명)  -->
+		<input type="text" name="cells[0].cell1" size="5">
+		<input type="text" name="cells[0].cell2" size="5">
+		<input type="text" name="cells[0].cell3" size="5">
+		<br />
+		Cell 2 :
+		<input type="text" name="cells[1].cell1" size="5" />
+		<input type="text" name="cells[1].cell2" size="5" />
+		<input type="text" name="cells[1].cell3" size="5" /> 
+		<br />
+		성인여부 :
+		<input type="radio" name="isAdult" value="true" />예
+		<input type="radio" name="isAdult" value="false" />아니오 
+		<br />
+		스포츠 :
+		<input type="checkbox" name="sports" value="baseball" />baseball
+		<input type="checkbox" name="sports" value="soccer" />soccer
+		<input type="checkbox" name="sports" value="swim" />swim
+		<input type="checkbox" name="sports" value="surf" />surf
+		<br />
 		<input type="submit" value="가입">
 	</form>
 	<a href="/blog/resources/html/signin.html">로그인</a>
