@@ -37,6 +37,13 @@ public class MemberService implements iMemberService {
 		
 		return member;
 	}
+	
+	@Override
+	public Member selectSession(Member member) {
+		
+		Member memberRecord = memberDao.selectSession(member);
+		return memberRecord;
+	}
 
 	@Override
 	public Member[] edit(Member member) {
