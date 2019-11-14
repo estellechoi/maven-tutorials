@@ -1,13 +1,18 @@
 package kr.co.blog.members;
 
+import java.util.List;
+
 public class Member {
 	
 	private String email;
 	private String pwd;
 	private String username;
-	private String cell1;
-	private String cell2;
-	private String cell3;
+	
+	// MemberCell 객체로 구성된 List 타입 변수 
+	private List<MemberCell> cells;
+	
+	private boolean isAdult;
+	private String[] sports;
 	
 	
 	public String getEmail() {
@@ -28,28 +33,26 @@ public class Member {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getCell1() {
-		return cell1;
+	public List<MemberCell> getCells() {
+		return cells;
 	}
-	public void setCell1(String cell1) {
-		this.cell1 = cell1;
+	public void setCells(List<MemberCell> cells) {
+		this.cells = cells;
 	}
-	public String getCell2() {
-		return cell2;
+	public boolean getIsAdult() {
+		return isAdult;
 	}
-	public void setCell2(String cell2) {
-		this.cell2 = cell2;
+	public void setIsAdult(boolean isAdult) {
+		this.isAdult = isAdult;
 	}
-	public String getCell3() {
-		return cell3;
+	public String[] getSports() {
+		return sports;
 	}
-	public void setCell3(String cell3) {
-		this.cell3 = cell3;
+	public void setSports(String[] sports) {
+		this.sports = sports;
 	}
 	
 	
 	
-
 	
-
 }
