@@ -27,4 +27,15 @@
 	<!-- 해당 클래스에서 직접 @Service 어노테이션으로 빈 생성  -->
 <!-- 	<beans:bean id="memberService" class="kr.co.blog.members.service.MemberService" /> -->
 	
+	<!-- Interceptor 사용하기  -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/editForm"/>
+			<!-- 
+			<mapping path="/member/**"/>
+			<exclude-mapping path="/member/signin"/>
+			 -->
+			 <beans:bean class="kr.co.blog.member.memberSigninInterceptor"/>
+		</interceptor>
+	</interceptors>
 </beans:beans>
