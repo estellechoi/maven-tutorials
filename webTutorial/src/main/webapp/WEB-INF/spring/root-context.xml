@@ -4,5 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- servlet-context.xml 과는 반대로 view와 관련되지 않은 객체를 정의하는  -->
+	<!-- Service, Repository(DAO), DB등 비즈니스 로직과 관련된 설정 -->
 		
 </beans>
