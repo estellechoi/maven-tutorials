@@ -35,7 +35,7 @@
 			<mapping path="/member/**"/>
 			<exclude-mapping path="/member/signin"/>
 			 -->
-			 <beans:bean class="kr.co.blog.member.memberSigninInterceptor"/>
+			 <beans:bean class="kr.co.blog.members.memberSigninInterceptor"/>
 		</interceptor>
 	</interceptors>
 </beans:beans>
