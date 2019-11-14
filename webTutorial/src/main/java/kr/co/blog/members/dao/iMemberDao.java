@@ -10,6 +10,7 @@ public interface iMemberDao {
 	
 	void insert(String email, String pwd, String username, List<MemberCell> cells, boolean isAdult, String[] sports);
 	Member select(String email, String pwd);
+	Member selectSession(Member member);
 	Member[] update(Member member);
 	Map<String, Member> delete(Member member);
 

@@ -54,6 +54,14 @@ public class MemberDao implements iMemberDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public Member selectSession(Member member) {
+		
+		Member memberRecord = dbMap.get(member.getEmail());
+		
+		return memberRecord;
+	}
 
 	@Override
 	public Member[] update(Member member) {
