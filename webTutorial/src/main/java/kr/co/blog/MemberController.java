@@ -4,6 +4,9 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,7 +46,7 @@ public class MemberController {
 		// required = ture 속성 : 필수값 지정 (값 없다면 Exception)
 		// defaultValue = "" 속성 : required = false 일 때, 값 없는 경우 기본값 지정
 
-		memberService.select(email, pwd);
+		Member member = memberService.select(email, pwd);
 
 		try {
 			model.addAttribute("email", email);
@@ -54,6 +57,42 @@ public class MemberController {
 
 		return "signinOk";
 	}
+	
+	/*
+	@RequestMapping(value = "/signinSession", method = RequestMethod.POST)
+	public String signinSession(Member member, HttpServletRequest request) {
+		
+		Member memberRecord = memberService.selectSession(member);
+		// 세션 생성
+		HttpSession session = request.getSession();
+		session.setAttribute("member", memberRecord);
+		
+		return "signinOk";
+	}
+	*/
+	
+	@RequestMapping(value = "/signinSession", method = RequestMethod.POST)
+	public String signinSession(Member member, HttpSession session) {
+		
+		Member memberRecord = memberService.selectSession(member);
+		// 세션 속성 셋 
+		session.setAttribute("member", memberRecord);
+		
+		return "signinOk";
+	}
+	
+	// RequestMethod.GET 생략 가능
+	// 속성이 1 개일 때 , value 속성 생략 가능 
+//	@RequestMapping(value = "/signout", method = RequestMethod.GET)
+	@RequestMapping("/signout")
+	public String signout(Member member, HttpSession session) {
+		
+		// 세션 종료 
+		session.invalidate();
+		
+		return "signoutOk";
+	}
+	
 
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signup(@ModelAttribute("m") Member member) {
@@ -80,13 +119,29 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)
-	public String remove(@ModelAttribute("m") Member member) {
+	public String remove(@ModelAttribute("m") Member member, HttpSession session) {
 		// 커맨드 객체를 이용해 DTO 에 HTTP 전송값을 넣는다 (setter 실행)
 		
 		// 해당 회원 탈퇴처리 후 남은 회원정보 모두 시스템 출력 
 		memberService.remove(member);
 		
+		// 세션 종료
+		session.invalidate();
+		
 		return "removeOk";
+	}
+	
+	@RequestMapping("/editForm")
+	public ModelAndView editForm(HttpSession session) {
+		
+		// 세션정보 가져오기 
+		Member member = (Member) session.getAttribute("member");
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("member", memberService.selectSession(member));
+		mv.setViewName("editForm");
+		
+		return mv;
 	}
 	
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
