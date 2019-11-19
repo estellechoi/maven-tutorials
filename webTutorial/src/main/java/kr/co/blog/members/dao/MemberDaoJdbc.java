@@ -15,8 +15,8 @@ public class MemberDaoJdbc {
 
 	// 데이터베이스 driver, url, id, pw 정보 
 	private String driver = "com.mysql.jdbc.Driver";
-	private String url = "jdbc:mysql://localhost:3306/spring?userSSL=false";
-	private String userid = "estellechoi";
+	private String url = "jdbc:mysql://localhost:3306/spring?useSSL=false&serverTimezone=UTC";
+	private String userid = "root";
 	private String userpw = "12345678";
 
 	private Connection conn = null;
@@ -25,6 +25,7 @@ public class MemberDaoJdbc {
 	
 	// 1) 생성자
 	public MemberDaoJdbc() {
+	
 	}
 
 	// 2) insert (회원가입)

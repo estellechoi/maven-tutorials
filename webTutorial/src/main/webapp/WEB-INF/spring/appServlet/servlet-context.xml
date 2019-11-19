@@ -28,14 +28,15 @@
 <!-- 	<beans:bean id="memberService" class="kr.co.blog.members.service.MemberService" /> -->
 	
 	<!-- Interceptor 사용하기  -->
-	<interceptors>
-		<interceptor>
-			<mapping path="/member/editForm"/>
-			<!-- 
-			<mapping path="/member/**"/>
-			<exclude-mapping path="/member/signin"/>
-			 -->
-			 <beans:bean class="kr.co.blog.members.memberSigninInterceptor"/>
-		</interceptor>
-	</interceptors>
+<!--  	<interceptors> -->
+<!-- 		<interceptor> -->
+<!-- 			<mapping path="/member/editForm"/> -->
+<!-- 			 -->
+<!-- 			<mapping path="/member/**"/> -->
+<!-- 			<exclude-mapping path="/member/signin"/> -->
+<!-- 			 -->
+<!-- 			 <beans:bean class="kr.co.blog.members.memberSigninInterceptor"/> -->
+<!-- 		</interceptor> -->
+<!-- 	</interceptors> -->
+
 </beans:beans>
