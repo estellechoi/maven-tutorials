@@ -4,7 +4,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import kr.co.spring.XmlTutorial.beans.HelloWorld;
 
-public class Main {
+public class MainHelloWorld {
 
 	public static void main(String[] args) {
 
