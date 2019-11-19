@@ -1,0 +1,32 @@
+<!-- Maven 설정 파일 (라이브러리 추가) -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>kr.co.spring</groupId>
+	<artifactId>XmlTutorial</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	
+	<!-- <properties> : xml 파일 내에서 공통으로 사용할 속성들을 명시하고 값을 바꾸어 자동으로 반영시킬 수 있다  -->
+	<properties>
+		<!-- java version -->
+		<java-version>1.8</java-version>
+		<!-- spring version -->
+<!-- 		<org.springframework-version>5.1.9.RELEASE</org.springframework-version> -->
+		<org.springframework-version>4.3.25.RELEASE</org.springframework-version>
+	</properties>
+
+
+	<!-- 프로젝트에서 사용할 라이브러리  -->
+	<!-- mvnrepository.com 에서 필요한 라이브러리 복사 -->
+	<dependencies>
+		<!-- spring-context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+	</dependencies>
+
+</project>
