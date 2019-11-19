@@ -6,8 +6,10 @@
 						http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- HelloWorldEng 클래스의 Bean 객체 생성  -->
-	<bean id="helloWorldEng" class="kr.co.spring.XmlTutorial.beans.HelloWorldEng"/>
+<!-- 	<bean id="helloWorldEng" class="kr.co.spring.XmlTutorial.beans.HelloWorldEng"/> -->
 	
 	<!-- HelloWorldKo 클래스의 Bean 객체 생성  -->
 <!-- 	<bean id="helloWorldKo" class="kr.co.spring.XmlTutorial.beans.HelloWorldKo"/> -->
+
+	<bean id="testBean1" class="kr.co.spring.XmlTutorial.beans.TestBean"/>
 </beans>
