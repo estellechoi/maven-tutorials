@@ -11,5 +11,21 @@
 	<!-- HelloWorldKo 클래스의 Bean 객체 생성  -->
 <!-- 	<bean id="helloWorldKo" class="kr.co.spring.XmlTutorial.beans.HelloWorldKo"/> -->
 
-	<bean id="testBean1" class="kr.co.spring.XmlTutorial.beans.TestBean"/>
+<!-- 	<bean id="testBean1" class="kr.co.spring.XmlTutorial.beans.TestBean"/> -->
+	
+	<!-- id 속성에 값을 부여하면, getBean() 메소드로 객체의 주소값을 호출할 수 있다  -->
+	<!-- 생성된 객체는 더이상 다시 생성되지 않는다 (Singletone) -->
+	<bean class="kr.co.spring.XmlTutorial.beans.CreateBean"/>
+
+	<!-- id 있는 경우  -->
+	<bean id="createBean" class="kr.co.spring.XmlTutorial.beans.CreateBean"/>
+
+	<!-- lazy-init="true" : xml 정보 로딩 시, 객체가 생성되지 않는다  -->
+	<!-- getBean() 메소드로 주소값 호출할 때 객체 생성 (객체는 하나만 생성, singletone) -->
+	<!-- 디폴트 = "false" (생략시) -->
+	<bean id="createBeanLazyInit" class="kr.co.spring.XmlTutorial.beans.CreateBean" lazy-init="true"/>
+	
+	<!-- scope = "prototype" : bean 주소값을 호출할 때마다 객체 생성 후 반환, xml 정보 로딩시 객체 생성 X  -->
+	<bean id="createBeanPrototype" class="kr.co.spring.XmlTutorial.beans.CreateBean" scope="prototype"/>
+
 </beans>
