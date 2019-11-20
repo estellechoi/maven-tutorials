@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링 설정 파일 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="testBean"
+		class="kr.co.spring.BeanPostProcessor.beans.TestBean" lazy-init="true"
+		init-method="init" />
+
+	<bean id="testBean2"
+		class="kr.co.spring.BeanPostProcessor.beans.TestBean2"
+		lazy-init="true" />
+
+	<!-- 직접 호출해서 사용할 클래스가 아니므로, bean 객체로 정의만 해주면 된다. (id 등 속성 필요 X) -->
+	<bean class="kr.co.spring.BeanPostProcessor.processor.TestBeanPostProcessor" />
+</beans>
