@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링 설정 파일 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 이 bean 호출될 때, 매개변수 없는 생성자가 호출된다. -->
+	<bean class="kr.co.spring.DependencyInjection.beans.TestBean"
+		id="testBean" lazy-init="true" />
+
+	<!-- 생성자를 통한 의존주입  -->
+	<!-- 이 bean 호출될 때, 매개변수가 1 개인 생성자가 호출된다. -->
+	<!-- 매개변수가 1 개인 생성자가 여러개라면 ? (자료형은 다르고) -->
+	<!-- 우선순위 : String > double > int -->
+	<!-- 따라서 여기에서는 아래 설정된 생성자 매개값 11.11 은 타입 지정이 안돼있으므로 String 으로 들어간다 .! -->
+	<bean class="kr.co.spring.DependencyInjection.beans.TestBean"
+		id="testBean2" lazy-init="true">
+		<constructor-arg value="200" type="int" />	
+	</bean>
+	
+	<bean class="kr.co.spring.DependencyInjection.beans.TestBean"
+		id="testBean3" lazy-init="true">
+		<constructor-arg value="11.11" />	
+	</bean>
+
+	<bean class="kr.co.spring.DependencyInjection.beans.TestBean"
+		id="testBean4" lazy-init="true">
+		<constructor-arg value="hello Spring !" />	
+	</bean>
+		
+</beans>
