@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>kr.co.spring</groupId>
-	<artifactId>AnnotationTutorial</artifactId>
+	<artifactId>DependencyInjection</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<!-- <properties> : xml 파일 내에서 공통으로 사용할 속성들을 명시하고 값을 바꾸어 자동으로 반영시킬 수 있다 -->
