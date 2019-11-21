@@ -3,6 +3,8 @@ package kr.co.spring.SpringDI.main;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import kr.co.spring.SpringDI.beans.Member;
+import kr.co.spring.SpringDI.beans.TestBean;
+import kr.co.spring.SpringDI.beans.TestBean2;
 
 public class MainXml {
 
@@ -30,7 +32,25 @@ public class MainXml {
 		System.out.printf("member2.email : %s\n", member2.getEmail());
 		System.out.printf("member2.group : %s\n", member2.getGroup());
 		
+		System.out.println("-------------------------------------------------------");
 		
+		// 2) 자동 주입 설정된 bean 호출  (byName)
+		TestBean testBean = ctx.getBean("testBean", TestBean.class);
+
+		// 값 불러오기 
+		System.out.printf("testBean.data1 : %s\n", testBean.getData1());
+		System.out.printf("testBean.data2 : %s\n", testBean.getData2());
+			
+		System.out.println("-------------------------------------------------------");
+		
+		//testBean2
+		// 2) 자동 주입 설정된 bean 호출  (byType)
+		TestBean2 testBean2 = ctx.getBean("testBean2", TestBean2.class);
+
+		// 값 불러오기 
+		System.out.printf("testBean2.data1 : %s\n", testBean2.getData1());
+		System.out.printf("testBean2.data2 : %s\n", testBean2.getData2());
+
 		
 		ctx.close();
 	}
