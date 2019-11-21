@@ -5,4 +5,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 						http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<bean id="testBean"
+		class="kr.co.spring.AnnotationTutorial.beans.TestBean" />
+	<bean id="testBean2"
+		class="kr.co.spring.AnnotationTutorial.beans.TestBean2"
+		lazy-init="true" />
+
+	<!-- 같은 클래스의 bean 을 1 개만 정의했다면, id 필요없다  -->
+	<!-- 하지만 여러개인데, id 가 없다면 ? primary = true 속성 필요  -->
+	<bean class="kr.co.spring.AnnotationTutorial.beans.TestBean4" primary="true" />
+	<bean class="kr.co.spring.AnnotationTutorial.beans.TestBean4" />
+
 </beans>
