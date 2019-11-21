@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링 설정 파일 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="group" class="kr.co.spring.SpringDI.beans.Group" />
+
+	<!-- 생성자를 통한 주입  -->
+	<bean id="member" class="kr.co.spring.SpringDI.beans.Member" lazy-init="true">
+		<constructor-arg value="19" type="int" index="0"/>
+		<constructor-arg value="izabel.choi@gmail.com" type="java.lang.String" index="1" />
+		<constructor-arg ref="group" index="2"/>
+	</bean>
+	
+	
+	<!-- setter() 메소드를 통한 주입  -->
+	<bean id="member2" class="kr.co.spring.SpringDI.beans.Member" lazy-init="true">
+		<property name="age" value="20" />
+		<property name="email" value="estele.choi@gmail.com" />
+		<property name="group" ref="group" />
+	</bean>
+</beans>
