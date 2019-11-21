@@ -52,7 +52,7 @@
 	
 	
 
-	<!-- 자동주입 설정하지 않은 bean 의 의존성 자동 주입  -->
+	<!-- 3) 자동주입 설정하지 않은 bean 의 의존성 자동 주입  -->
 
 	<!-- 상단의 <beans> 태그 내 default-autowire 속성에 따라 자동 주입된다. -->
 	<bean id="testBean4" class="kr.co.spring.AutoWire.beans.TestBean" />
