@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링 설정 파일 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="testBean"
+		class="kr.co.spring.DependencyInjection2.beans.TestBean"
+		lazy-init="true">
+		<!-- 제네릭이 String 인 List -->
+		<property name="list">
+			<!-- 3 개의 String 값을 요소로 하는 List 객체를 생성하여 setList 를 통해 주입 -->
+			<list>
+				<value>hello</value>
+				<value>world</value>
+				<value>!</value>
+			</list>
+		</property>
+		<!-- 제네릭이 Integer 인 List -->
+		<property name="integerList">
+			<list>
+				<value type="int">1</value>
+				<value type="int">2</value>
+				<value type="int">3</value>
+			</list>
+		</property>
+		<!-- 제네릭이 객체인 List -->
+		<property name="dataBeanList">
+			<list>
+				<bean class="kr.co.spring.DependencyInjection2.beans.DataBean" />
+				<bean class="kr.co.spring.DependencyInjection2.beans.DataBean" />
+				<ref bean="dataBean" />
+				<ref bean="dataBean" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- 주입할 때마다 새로운 객체 생성되도록 prototype 설정 -->
+	<bean id="dataBean"
+		class="kr.co.spring.DependencyInjection2.beans.DataBean"
+		scope="prototype" />
+
+
+</beans>
