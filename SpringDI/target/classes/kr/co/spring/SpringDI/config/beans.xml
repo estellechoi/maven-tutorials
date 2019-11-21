@@ -5,6 +5,16 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 						http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<!-- 자동주입 설정  -->
+	<bean id="data1" class="kr.co.spring.SpringDI.beans.DataBean" />
+	<bean id="data2" class="kr.co.spring.SpringDI.beans.DataBean" />
+	<bean id="data3" class="kr.co.spring.SpringDI.beans.DataBean2" />
+	
+	<bean id="testBean" class="kr.co.spring.SpringDI.beans.TestBean" autowire="byName" />
+	<bean id="testBean2" class="kr.co.spring.SpringDI.beans.TestBean2" autowire="byType" />
+	
+	
+	
 	<bean id="group" class="kr.co.spring.SpringDI.beans.Group" />
 
 	<!-- 생성자를 통한 주입  -->
@@ -21,4 +31,7 @@
 		<property name="email" value="estele.choi@gmail.com" />
 		<property name="group" ref="group" />
 	</bean>
+	
+	
+
 </beans>
