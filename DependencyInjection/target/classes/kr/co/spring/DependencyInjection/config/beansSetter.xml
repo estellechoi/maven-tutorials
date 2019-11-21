@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링 설정 파일 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- setter 를 통한 의존주입 -->
+	<!-- name : setName() 메소드를 찾는다 -->
+	<!-- value : setName(100) 값을 넣어준다 -->
+	<bean id="test1"
+		class="kr.co.spring.DependencyInjection.beans.TestBeanSetter"
+		lazy-init="true">
+		<property name="data1" value="100" />
+		<property name="data2" value="11.1" />
+		<property name="data3" value="true" />
+		<property name="data4" value="Hello" />
+		<!-- 클래스타입 변수에 setter를 통해 객체를 의존 주입할 때 -->
+		<property name="data5">
+			<bean class="kr.co.spring.DependencyInjection.beans.DataBean" />
+		</property>
+		<!-- 이미 정의된 bean 객체를 의존 주입할 때 ref="bean id"  -->
+		<property name="data6" ref="dataBean" />
+	</bean>
+
+	<!-- bean 정의시 순서는 무관하다 -->
+	<bean id="dataBean"
+		class="kr.co.spring.DependencyInjection.beans.DataBean" />
+
+</beans>
