@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링 설정 파일 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="testBean"
+		class="kr.co.spring.DependencyInjectionSet.beans.TestBean"
+		lazy-init="true">
+		<property name="set">
+			<set>
+				<value>hello</value>
+				<value>world</value>
+				<value>!</value>
+			</set>
+		</property>
+		<property name="integerSet">
+			<set>
+				<value type="int">1</value>
+				<value type="int">2</value>
+				<value type="int">3</value>
+			</set>
+		</property>
+		
+		<!-- Set<E> 의 특징 : 중복 데이터를 요소로 할 수 없다. -->
+		<!-- id가 동일한 bean 객체를 주입하여도, 1 개의 객체만 요소로 저장한다. -->
+		<property name="dataBeanSet">
+			<set>
+				<bean
+					class="kr.co.spring.DependencyInjectionSet.beans.DataBean" />
+				<ref bean="dataBean" />
+				<ref bean="dataBean" />
+			</set>
+		</property>
+
+	</bean>
+
+	<bean id="dataBean"
+		class="kr.co.spring.DependencyInjectionSet.beans.DataBean"
+		scope="prototype" />
+</beans>
