@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링 설정 파일 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName">
+	<!-- default-autowire="byName" 자동주입 설정되지 않은 bean 들은 위를 따른다. -->
+
+
+	<!-- 1) 수동 주입 -->
+	
+	<!-- setter() 를 통한 주입  -->
+	<bean id="testBean" class="kr.co.spring.AutoWire.beans.TestBean">
+		<!-- setMember1() -->
+		<property name="member1" ref="memberBean" />
+		<!-- setMember2() -->
+		<property name="member2" ref="memberBean" />
+	</bean>
+
+	<!-- 생성자를 통한 주입  -->
+	<bean id="testBeanCons" class="kr.co.spring.AutoWire.beans.TestBeanCons">
+		<constructor-arg ref="group1" index="0" />
+		<constructor-arg ref="group1" index="1" />
+	</bean>
+
+	<bean id="testBeanCons3" class="kr.co.spring.AutoWire.beans.TestBeanCons">
+		<constructor-arg ref="group1" index="2" />
+		<constructor-arg ref="group1" index="3" />
+		<constructor-arg value="100" type="int" index="0" />
+		<constructor-arg value="hello" index="1" />
+	</bean>
+
+
+
+	<!-- 2) 자동 주입 -->
+
+	<!-- autowire = "byName" : 정의된 bean 중에서 id 가 객체의 프로퍼티명(변수명)과 동일한 것을 찾아 자동으로 주입 -->
+	<bean id="testBean2" class="kr.co.spring.AutoWire.beans.TestBean" autowire="byName" />
+
+	<!-- autowire="byType" -->
+	<bean id="testBean3" class="kr.co.spring.AutoWire.beans.TestBean" autowire="byType" />
+
+	<!-- autowire = "constructor" : 생성자와 타입이 같은 객체를 자동 주입 (생성자를 통한 주입)  -->
+	<bean id="testBeanCons2" class="kr.co.spring.AutoWire.beans.TestBeanCons" autowire="constructor"/>
+	
+	<!-- 객체 타입이 아닌 값들은 수동 주입, 객체들은 생성자의 매개변수와 같은 타입을 찾아 자동 주입  -->
+	<bean id="testBeanCons4" class="kr.co.spring.AutoWire.beans.TestBeanCons" autowire="constructor">
+		<constructor-arg value="200" type="int" index="0" />
+		<constructor-arg value="String type cannot be autowired." type="java.lang.String" index="1" />
+	</bean>
+	
+	
+
+	<!-- 자동주입 설정하지 않은 bean 의 의존성 자동 주입  -->
+
+	<!-- 상단의 <beans> 태그 내 default-autowire 속성에 따라 자동 주입된다. -->
+	<bean id="testBean4" class="kr.co.spring.AutoWire.beans.TestBean" />
+	
+	<!-- default-autowire 속성 따르지 않기  -->
+	<bean id="testBean5" class="kr.co.spring.AutoWire.beans.TestBean" autowire="no" />
+
+
+
+
+
+
+
+	<!-- 3) 주입될 객체들  -->
+	<bean id="memberBean" class="kr.co.spring.AutoWire.beans.Member" scope="prototype" />
+<!-- 	<bean id="member1" class="kr.co.spring.AutoWire.beans.Member" /> -->
+<!-- 	<bean id="member2" class="kr.co.spring.AutoWire.beans.Member" />	 -->
+	<bean id="group1" class="kr.co.spring.AutoWire.beans.Group" scope="prototype"/>
+	
+
+</beans>
