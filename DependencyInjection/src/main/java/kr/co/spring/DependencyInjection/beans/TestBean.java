@@ -33,6 +33,20 @@ public class TestBean {
 		this.data2 = 0.0;
 		this.data3 = data3;
 	}
+	
+	public TestBean(int data1, double data2, String data3) {
+		System.out.println("TestBean 생성자 (매개변수 3개)");
+		this.data1 = data1;
+		this.data2 = data2;
+		this.data3 = data3;
+	}
+
+	public TestBean(int data1_1, int data1_2, int data1_3) {
+		System.out.println("TestBean 생성자 (매개변수 3개)");
+		this.data1 = data1_1 + data1_2;
+		this.data2 = (double) data1_3;
+		this.data3 = null;
+	}
 
 	public void printData() {
 		System.out.printf("data1 : %d\n", data1);
