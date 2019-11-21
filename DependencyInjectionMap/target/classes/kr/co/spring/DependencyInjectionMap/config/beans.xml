@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링 설정 파일 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+ <bean id="dataBean" class="kr.co.spring.DependencyInjectionMap.beans.DataBean" scope="prototype" />
+ 
+ <bean id="testBean" class="kr.co.spring.DependencyInjectionMap.beans.TestBean" lazy-init="true">
+ 	
+ 	<!-- Map 타입의 값/객체를 의존 주입  -->
+ 	<property name="map">
+ 		<map>
+ 			<entry key="key1" value="hello" />
+ 			<entry key="key2" value="100" value-type="int" />
+ 			<!-- DataBean 타입 객체를 요소로 저장  -->
+ 			<entry key="key3">
+ 				<bean class="kr.co.spring.DependencyInjectionMap.beans.DataBean" />
+ 			</entry>
+ 			<!-- 이미 정의된 DataBean 객체를 요소로 저장  -->
+ 			<entry key="key4" value-ref="dataBean"/>
+ 			<!-- List 객체를 요소로 저장  -->
+ 			<entry key="key5">
+ 				<list>
+ 					<value>youjin</value>
+ 					<value>choi</value>
+ 					<value>is growing</value>
+ 				</list>
+ 			</entry>
+ 		</map>
+ 	</property>
+ 	
+ 	<!-- Properties 타입의 값/객체를 의존 주입 -->
+ 	<property name="pro">
+ 		<props>
+ 			<!-- Properties 타입 객체에 요소들 저장   -->
+ 			<prop key="prop1">hello</prop>
+ 			<prop key="prop2">let's study</prop>
+ 			<prop key="prop3">Properties class type.</prop>
+ 		</props>
+ 	</property>
+ 
+ </bean>
+</beans>
