@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링 설정 파일 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- bean 클래스 자체에 설정되어있는 어노테이션 이용한다. -->
+	<!-- <context:annotation-config /> -->
+	
+	<!-- 지정된 package 내의 클래스들의 어노테이션을 분석하도록 설정한다. -->
+	<context:component-scan base-package="kr.co.spring.component" />
+	<context:component-scan base-package="kr.co.spring.component2" />
+
+	<bean class="kr.co.spring.beans.TestBean" />
+	<bean id="dataBean1" class="kr.co.spring.beans.DataBean" />
+	<bean id="dataBean2" class="kr.co.spring.beans.DataBean" />
+	
+	<!-- 같은 타입 bean 을 여러개 정의할 때는 xml 혹은 @Configuration 파일에서 직접 정의해야 한다. -->
+	<bean id="bean2" class="kr.co.spring.component.Bean2" />
+	<bean id="bean22" class="kr.co.spring.component.Bean2" />
+
+</beans>
