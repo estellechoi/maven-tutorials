@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링 설정 파일 -->
+<!-- bean 클래스 자체에 설정되어있는 어노테이션 이용을 위해 xmlns:context 와 xsi:schemaLocation 을 추가  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- bean 클래스 자체에 설정되어있는 어노테이션 이용한다.  -->
+	<context:annotation-config />
+	
+	<!-- testBean -->
+	<bean id="testBean" class="kr.co.spring.AnnotationTutorialBean.beans.TestBean">
+		<!-- setter() 를 통한 값 주입 -->
+		<property name="data" value="10" />
+	</bean>
+	
+	<!-- testBean2 -->
+	<bean id="testBean2" class="kr.co.spring.AnnotationTutorialBean.beans.TestBean2" />
+	
+	
+	<bean class="kr.co.spring.AnnotationTutorialBean.beans.DataBean" />
+	<bean id="member1" class="kr.co.spring.AnnotationTutorialBean.beans.Member" />
+	<bean id="member2" class="kr.co.spring.AnnotationTutorialBean.beans.Member" />
+
+</beans>
