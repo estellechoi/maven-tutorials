@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링 설정 파일 -->
+<!-- namespace aop 추가  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- bean 클래스 자체에 설정되어있는 어노테이션 이용한다. -->
+	<!-- <context:annotation-config /> -->
+	
+	<!-- 지정된 package 내의 클래스들의 어노테이션을 분석하도록 설정한다. -->
+<!-- 	<context:component-scan base-package="kr.co.spring.component" /> -->
+
+
+	<bean id="testBean" class="kr.co.spring.beans.TestBean" />
+	
+	<!-- Advisor 클래스를 bean 으로 등록  -->
+	<bean id="advisor" class="kr.co.spring.advisor.AdvisorClass" />
+	
+	<!-- AOP 설정  -->
+	 <aop:config>
+	 	<aop:aspect ref="advisor">
+	 		<!-- 특정 메소드 호출을 관심사로 등록  -->
+	 		<!-- 메소드명만 명시하였다면, 패키지/클래스 상관없이 명시된 메소드 호출시 Advice 동작  -->
+	 		<aop:pointcut id="point1" expression="execution(* aspectMethod())" />
+	 		<!-- "point1" 관심 메소드 호출시, "advisor" 빈의 "before" 메소드 호출 설정  -->
+	 		<aop:before method="before" pointcut-ref="point1" />
+	 		<aop:after method="after" pointcut-ref="point1" />
+	 		<aop:around method="around" pointcut-ref="point1" />
+	 		<aop:after-returning method="afterReturning" pointcut-ref="point1" />
+	 		<!-- 관심 메소드 작동중 예외 발생시, "afterThrowing" 메소드 호출, 매개변수 "e" 를 통해 예외정보 객체가 자동주입된다. -->
+	 		<aop:after-throwing method="afterThrowing" pointcut-ref="point1" throwing="e" />
+	 	</aop:aspect>
+	 </aop:config>
+	
+</beans>
