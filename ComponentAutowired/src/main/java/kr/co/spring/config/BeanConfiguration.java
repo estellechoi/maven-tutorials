@@ -18,6 +18,7 @@ public class BeanConfiguration {
 		return new NameBean();
 	}
 	
+	
 	// ServiceBean3 의 bean 을 여러개 등록하자.
 	@Bean
 	public ServiceBean3 serviceBean3() {
