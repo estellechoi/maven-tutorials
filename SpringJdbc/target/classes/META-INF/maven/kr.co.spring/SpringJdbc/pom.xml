@@ -85,6 +85,12 @@
 			<version>${mysql-connector-java-version}</version>
 		</dependency>
 
+		<!-- commons-dbcp : 커넥션풀 사용을 위한 DBCP, mySQL 은 보통 commonsDBCP 와 함께 사용 -->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
 
 
 	</dependencies>
