@@ -19,6 +19,7 @@
 	<context:component-scan base-package="kr.co.spring.component" />
 	<context:component-scan base-package="kr.co.spring.advisor" />
 
+
 	<!-- Advisor 클래스에 설정된 어노테이션을 분석하여 AOP 를 세팅한다. -->
 	<aop:aspectj-autoproxy/>
 	
