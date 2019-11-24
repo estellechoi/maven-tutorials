@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링 설정 파일 -->
+<!-- namespace aop 추가 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- bean 클래스 자체에 설정되어있는 어노테이션 이용한다. -->
+	<!-- <context:annotation-config /> -->
+
+	<!-- 지정된 package 내의 클래스들의 어노테이션을 분석하도록 설정한다. -->
+	<!-- <context:component-scan base-package="kr.co.spring.component" /> -->
+
+
+	<bean id="testBean" class="kr.co.spring.beans.TestBean" />
+	<bean id="dataBean" class="kr.co.spring.beans.DataBean" />
+	<bean id="testBean2" class="kr.co.spring.beans2.TestBean2" />
+	
+	<bean id="advisor" class="kr.co.spring.advisor.AdvisorClass" />
+	
+	<aop:config>
+		<aop:aspect ref="advisor">
+			<!-- 관심 메소드 등록  -->
+			<!-- id : 관심 메소드 (pointcut)의 id  -->
+			<!-- expression = "execution()" : 관심 메소드에 대한 정보  -->
+			<!-- execution(접근제한자 리턴타입 패키지.클래스명.메소드명(매개변수)) -->
+			<!-- 반환타입 : void -->
+			<!-- 패키지 : kr.co.spring -->
+			<!-- 클래스명 : TestBean -->
+			<!-- 메소드명 : testMethod -->
+			<!-- 매개변수 : () (int) (java.lang.String) / (*) : 모든 타입의 매개변수 1 개, (..) : 모든 타입의 매개변수 개수도 무관   -->
+<!-- 			<aop:pointcut id="point" expression="execution(void kr.co.spring.beans.TestBean.testMethod())" /> -->
+<!-- 			<aop:pointcut id="point" expression="execution(void kr.co.spring.beans.TestBean.testMethod(int))" /> -->
+<!-- 			<aop:pointcut id="point" expression="execution(void kr.co.spring.beans.TestBean.testMethod(java.lang.String))" /> -->
+<!-- 			<aop:pointcut id="point" expression="execution(void kr.co.spring.beans.TestBean.testMethod(*,*))" /> -->
+<!-- 			<aop:pointcut id="point" expression="execution(void kr.co.spring.beans.TestBean.testMethod(..))" /> -->
+<!-- 			<aop:pointcut id="point" expression="execution(void kr.co.spring.beans.TestBean.*(..))" /> -->
+<!-- 			<aop:pointcut id="point" expression="execution(void kr.co.spring.beans.TestBean.*(..))" /> -->
+<!-- 			<aop:pointcut id="point" expression="execution(void kr.co.spring.beans.*.testMethod(..))" /> -->
+			<!-- 패키지 부분 생략  -->
+<!-- 			<aop:pointcut id="point" expression="execution(void *.*(..))" /> -->
+<!-- 			<aop:pointcut id="point" expression="execution(void kr.co.spring.*.*.testMethod(..))" /> -->
+<!-- 			<aop:pointcut id="point" expression="execution(int *.getInteger(..))" /> -->
+<!-- 			<aop:pointcut id="point" expression="execution(* *.*(..))" /> -->
+<!-- 			<aop:pointcut id="point" expression="execution(* *(..))" /> -->
+			<aop:pointcut id="point" expression="execution(* testMethod(..))" />
+			
+			<!-- advice 메소드 등록  -->
+			<aop:before method="beforeMethod" pointcut-ref="point" />
+		</aop:aspect>
+	</aop:config>
+</beans>
